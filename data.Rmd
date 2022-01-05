@@ -1,0 +1,93 @@
+---
+title: "Database"
+output: html_document
+---
+#loading required libraries
+```{r}
+library(plyr)
+library(dplyr)
+library(DBI)
+library(RSQLite)
+library(lubridate)
+library(readr)
+
+```
+
+#connecting to database
+```{r}
+con<-DBI::dbConnect(RSQLite::SQLite(), "./biodiversity-data/data.sqlite")
+```
+
+#Extracting table from database
+```{r}
+df<-tbl(con, "occurence")
+head(df)
+```
+
+#filtering poland and loading dataset into R
+```{r}
+poland<-df %>% filter(country=="Poland") %>% collect()
+write.csv(poland,"./www/poland.csv")
+```
+
+#exploring dataset
+```{r}
+head(poland)
+summary(poland)
+```
+
+#checking for NA values per column
+```{r}
+colSums(is.na(poland))
+
+```
+
+#droping NA values
+```{r}
+poland_clean<-poland %>% filter(kingdom!="NA")
+```
+
+#table data
+```{r}
+table_data<-poland_clean
+
+```
+
+#map data
+```{r}
+map_data<-poland_clean %>% select(c("scientificName","taxonRank","kingdom", "vernacularName","individualCount","longitudeDecimal","latitudeDecimal","locality")) %>% rename(
+ observation = individualCount,
+  lon = longitudeDecimal,
+  lat=latitudeDecimal
+)
+```
+
+#monthly occurence
+```{r}
+monthly_occurence<-poland_clean %>% mutate(
+  eventDate=dmy(eventDate),
+  month=strftime(eventDate,"%B"),
+  year=as.factor(year(eventDate))
+) 
+
+monthly_timeline<-ddply(monthly_occurence,.(month),summarise,occurence=sum(individualCount))
+
+```
+
+#yearly occurence
+```{r}
+
+yearly_occurence<-ddply(monthly_occurence,.(year),summarise,occurence=sum(individualCount))
+```
+
+
+#creating app dataset
+```{r}
+app_data<-list(table_data=table_data,
+               map_data=map_data,
+               monthly_data=monthly_timeline,
+               yearly_data=yearly_occurence
+               )
+saveRDS(app_data,"./www/app_data.rds")
+```
+
