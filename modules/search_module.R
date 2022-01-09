@@ -3,7 +3,7 @@ library(shiny.semantic)
 library(shinyWidgets)
 library(utils)
 library(htmlwidgets)
-
+library(modules)
 
 df<-use("constants.R")
 

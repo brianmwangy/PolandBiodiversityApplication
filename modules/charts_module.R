@@ -1,8 +1,8 @@
 library(shiny)
 library(shiny.semantic)
-library(echarts4r)
 library(tidyverse)
 library(plotly)
+library(modules)
 
 #loading app data
 df<-use("constants.R")
