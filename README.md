@@ -8,13 +8,13 @@ My submission is hosted here: [shinyapps.io](https://www.shinyappsio)
 
 # App Structure
 
-- app.R app file (UI and server logic live)
-- constants.R data constants file
-- data.R data loading and manipulation file
-- www/app_data.rds app clean data
-- www/poland.csv app raw data
-- modules/charts_module.R module for chart display
-- modules/search_module.R module for drop down search that does the map and table filtering
+- `app.R` app file (UI and server logic live)
+- `constants.R` data constants file
+- `data.R`data loading and manipulation file
+- `www/app_data.rds` app clean data
+- `www/poland.csv` app raw data
+- `modules/charts_module.R` module for chart display
+- `modules/search_module.R` module for drop down search that does the map and table filtering
 
 
 # Data
@@ -32,3 +32,11 @@ The search module takes in a variable, filters the data and outputs the filtered
 The chart module is static and displays a sum total of species occurence per month and year.
 
 Using this guide (https://appsilon.com/leaflet-vs-tmap-build-interactive-maps-with-r-shiny/) I was able to leverage leaflet package for interactive mapping.
+
+# Performance Testing
+
+The [testServer()](https://shiny.rstudio.com/articles/server-function-testing.html) function makes it possible to test code in server functions and modules. I used the function to validate my module's outputs.
+
+# App optimization
+
+The bindCache()  function enables the app to automatically retrieve the values saved in the cache instead of having to compute them again.Guide on caching:https://shiny.rstudio.com/articles/caching.html
