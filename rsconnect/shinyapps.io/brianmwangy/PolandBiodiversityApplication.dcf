@@ -1,0 +1,13 @@
+name: PolandBiodiversityApplication
+title: PolandBiodiversityApplication
+username:
+account: brianmwangy
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 5413220
+bundleId: 5449950
+url: https://brianmwangy.shinyapps.io/PolandBiodiversityApplication/
+when: 1641757831.40731
+lastSyncTime: 1641757831.40731
+asMultiple: FALSE
+asStatic: FALSE
