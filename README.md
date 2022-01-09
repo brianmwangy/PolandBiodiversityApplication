@@ -4,7 +4,7 @@ The shiny application allows for an interactive exploration of the biodiversity 
 
 **Data source**: The data is obtained from [Global Biodiversity Information Facility](https://www.gbif.org/occurrence/search?dataset_key=8a863029-f435-446a-821e-275f4f641165)
 
-My submission is hosted here: [shinyapps.io](https://www.shinyappsio)
+My submission is hosted here: [Poland Biodiversity Application](https://brianmwangy.shinyapps.io/PolandBiodiversityApplication/)
 
 # App Structure
 
