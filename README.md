@@ -21,7 +21,7 @@ My submission is hosted here: [shinyapps.io](https://www.shinyappsio)
 
 My first step was to explore the data, what is the data structure (variables,size)? The data was huge (20GB) and I prepped to write the data to SQL.I used the R studio great guide on [database using R](https://db.rstudio.com/getting-started/overview). Exploring the Global Biodiversity website facilitated a deeper understanding of the data. Using this Appsilon guide: https://appsilon.com/fast-data-loading-from-files-to-r/ , I opted to use the Rds function for enhanced performance.The server-side selectize also offers faster performance when loading and selecting data variables.
 
-# App structure
+# App UI
 
 Appsilon offers great UI options for developing enterprise shiny applications (https://appsilon.com/shiny-templates-available/). I used the appealing Semantic UI to structure the app layout. You can explore the detailed [guide](https://github.com/Appsilon/shiny.semantic). [Fluent UI](https://github.com/Appsilon/shiny.fluent) is also a great UI option worth exploring.
 
