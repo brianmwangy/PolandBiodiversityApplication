@@ -1,8 +1,9 @@
 
 library(shiny)
 library(shiny.semantic)
-library(leaflet)
 library(rsconnect)
+
+
 
 
 # Define UI for application 
