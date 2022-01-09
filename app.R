@@ -2,7 +2,9 @@
 library(shiny)
 library(shiny.semantic)
 library(rsconnect)
-
+library(leaflet)
+source("./modules/charts_module.R")
+source("./modules/search_module.R")
 
 
 
