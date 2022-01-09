@@ -64,7 +64,7 @@ searchserver<-function(id){
     #reactive function for scientific names
     scientific_react<-reactive({
       map_data %>% filter(scientificName==input$scientific)
-    })
+    }) %>% bindCache(input$scientific)
     
     #server side selectizeinput
     updateSelectizeInput(session,"scientific",choices =scientific_name)

@@ -47,6 +47,7 @@ chartui<-function(id){
 #server module
 chartserver<-function(id){
   moduleServer(id, function(input, output,session){
+    
     output$month<-renderPlotly({
        ggplotly(monthly_occurence %>%
          ggplot(aes(x=month, y=occurence))+
